@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev",
+      "dependsOn": [
+        "backend-dev",
+        "frontend-dev",
+        "db-dev"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "backend-dev",
+      "type": "shell",
+      "command": "uv run fastapi dev --port 8000",
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "frontend-dev",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "presentation": {
+        "panel": "new"
+      },
+      "dependsOn": [
+        "npm-install-if-needed"
+      ]
+    },
+    {
+      "label": "npm-install-if-needed",
+      "type": "shell",
+      "command": "if [ ! -d \"node_modules\" ]; then npm install; fi",
+      "presentation": {
+        "close": true
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "db-dev",
+      "type": "shell",
+      "command": "docker compose up --force-recreate",
+      "presentation": {
+        "panel": "new"
+      }
+    }
+  ]
+}

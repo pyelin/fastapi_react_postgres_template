@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pyephyom@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: demopassword
+      PGADMIN_CONFIG_SERVER_MODE: 'False' # disable login
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False' # disable master password
+    ports:
+      - "5433:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+      - ./pgadmin-servers.json:/pgadmin4/servers.json
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
+  pgadmin-data:
