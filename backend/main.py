@@ -2,6 +2,10 @@ from typing import Union
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from sqlmodel import Session, text
+
+from .db import engine
 
 app = FastAPI()
 
