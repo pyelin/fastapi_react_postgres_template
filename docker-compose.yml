@@ -18,7 +18,7 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: 'False' # disable login
       PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False' # disable master password
     ports:
-      - "5433:80"
+      - "5431:80"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
       - ./pgadmin-servers.json:/pgadmin4/servers.json

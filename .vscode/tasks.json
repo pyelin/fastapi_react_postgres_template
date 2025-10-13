@@ -51,7 +51,7 @@
     {
       "label": "db-dev",
       "type": "shell",
-      "command": "docker compose up --force-recreate",
+      "command": "docker compose up db pgadmin --force-recreate",
       "presentation": {
         "panel": "new"
       }
