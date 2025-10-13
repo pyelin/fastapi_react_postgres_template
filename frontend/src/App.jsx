@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import './App.css'
+import styles from './App.module.css'
 
 function App() {
   return (
-    <>
-      <div>
-        Hello World
-      </div>
-    </>
+    <div className={styles.app}>
+      Hello World
+    </div>
   )
 }
 
