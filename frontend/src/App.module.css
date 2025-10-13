@@ -5,3 +5,12 @@
   justify-content: center;
   min-height: 100vh;
 }
+
+.imageSection {
+  margin-top: 30px;
+}
+
+.imageSection img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+}
